@@ -1,0 +1,4 @@
+file name and class names must match
+- file and class names should be Pascal case
+    - it should start with an uppercase letter and start each word with another 
+        capital letter 
