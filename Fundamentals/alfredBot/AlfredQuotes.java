@@ -1,12 +1,10 @@
-package Fundamentals.alfredBot;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+// package Fundamentals.alfredBot;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 
 public class AlfredQuotes {
 
-    public String basicGreeting() {
+public String  basicGreeting() {
         // You do not need to code here, this is an example method
     
         return "Hello, lovely to see you. How are you?";
@@ -14,11 +12,11 @@ public class AlfredQuotes {
     public String guestGreeting(String name) {
         
         // YOUR CODE HERE
-        return String.format(" Hello %s,lovely to see you" + name);
+        return String.format(" Hello %s,lovely to see you" , name);
         }
-    public String guestGreeting(String name, String datePeriod){
-        return  String.format("Hello %s %s ,lovely to see you " + name + datePeriod );
-    }
+    // public String guestGreeting(String name, String datePeriod){
+    //     return  String.format("Hello %s %s ,lovely to see you " + name + datePeriod );
+    // }
     public String guestGreeting(){
         // String date = "yyyy-MM-dd";
         // SimpleDateFormat simpleDateFormat = new SimpleDateFormat(date);
@@ -36,11 +34,13 @@ public class AlfredQuotes {
     public String respondBeforeAlexis(String conversation) {
         // indexOf will returns the index number where the target string is first found 
         //  or -1 if the target is not found
+        
     
         if (conversation.indexOf("Alexis") > -1){
             return "Sir  She Certainly isn't sophisticated enough for that ";
 
         }
+        
         if(conversation.indexOf("Alfred") > -1){
             return "At your service. As you wish, naturally";
         }

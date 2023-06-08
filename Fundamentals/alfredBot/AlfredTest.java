@@ -1,4 +1,4 @@
-package Fundamentals.alfredBot;
+// package Fundamentals.alfredBot;
 import java.util.Date;
 public class AlfredTest{
     /*
@@ -6,7 +6,7 @@ public class AlfredTest{
     * For now, we are using the main to test all our 
     * AlfredQuotes methods.
     */
-    public static void main(String[] args) {
+    public static void  main(String[] args) {
         // Make an instance of AlfredQuotes to access all its methods.
         // AlfredQuotes alfredBot = new AlfredQuotes();
         AlfredQuotes alfredBot = new  AlfredQuotes();
@@ -29,10 +29,10 @@ public class AlfredTest{
         System.out.println(testGreeting);
         
         // Uncomment these one at a time as you implement each method.
-        // System.out.println(testGuestGreeting);
+        System.out.println(testGuestGreeting);
         System.out.println(testDateAnnouncement);
-        // System.out.println(alexisTest);
-        // System.out.println(alfredTest);
-        // System.out.println(notRelevantTest);
+        System.out.println(alexisTest);
+        System.out.println(alfredTest);
+        System.out.println(notRelevantTest);
 
     }}
