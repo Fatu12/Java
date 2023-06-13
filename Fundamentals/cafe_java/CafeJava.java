@@ -20,9 +20,9 @@ public class CafeJava {
         String customer4 = "Noah";
 
         // Order completions (add yours below) this is boolean condition true or false 
-        boolean isReadyOrder1 = false;
+        boolean isReadyOrder1 = true;
         boolean isReadyOrder2 = true;
-        boolean isReadyOrder3 = false;
+        boolean isReadyOrder3 = true;
         boolean isReadyOrder4 = true;
 
         // APP INTERACTION SIMULATION (Add your code for the challenges below)
