@@ -10,12 +10,15 @@ public class CafeUtilTest {
         double[] itemPrices = {4.5,3.5,2,4,5};
          double totalPrice  = appTest.getOrderTotal(itemPrices);
         System.out.println(String.format("The total : %s \n",  totalPrice));
+    // appTest.displayMenu( );
+
+
 
         
         List<String> coffeeMenu = Arrays.asList("drip coffee", "cappuccino","latte","mocha");
         ArrayList<String> menu = new ArrayList<String>();
         menu.addAll(coffeeMenu);
-        System.err.println(coffeeMenu);
+        System.out.println(coffeeMenu);
         appTest.displayMenu(menu);
 
         
