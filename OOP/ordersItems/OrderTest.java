@@ -7,8 +7,6 @@ public class OrderTest {
         Item item2 = new Item("latte", 4.5);
         Item item3 = new Item("cappuccino", 3.4);
         Item item4 = new Item("mocha", 4.5);
-
-
         // Create 2 orders for unspecified guests (without specifying a name);
         Order order1 = new Order();
         Order order2 = new Order();
