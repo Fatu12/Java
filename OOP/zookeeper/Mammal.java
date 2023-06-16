@@ -2,11 +2,9 @@
 
 public class Mammal {
     // member variable 
-    protected int energyLevel = 100;
-    
-    // 
+    public int energyLevel  ;
     public Mammal( int energyLevel){
-        this.energyLevel  = energyLevel;
+        this.energyLevel = energyLevel;
     }
 
     // this method should show the animal's energy level as well as return it 
@@ -14,7 +12,7 @@ public class Mammal {
         int totalCount = 0;
         totalCount += energyLevel;
         System.out.printf("\n Mammals Energy Level %s", this.energyLevel);
-       return  this.energyLevel ;
+        return  this.energyLevel ;
 
     }
     

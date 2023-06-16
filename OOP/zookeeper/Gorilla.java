@@ -2,8 +2,8 @@
 public class Gorilla extends Mammal { 
 // super key must has constructor
 // ! that super is inheriting 
-    public Gorilla(int energyLevel){
-        super(energyLevel);
+    public Gorilla(int mamma){
+        super(mamma);
     }
     // methods
     public void throwSomething(){
