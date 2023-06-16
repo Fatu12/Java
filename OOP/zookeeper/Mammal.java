@@ -2,9 +2,10 @@
 
 public class Mammal {
     // member variable 
-    public int energyLevel  ;
-    public Mammal( int energyLevel){
-        this.energyLevel = energyLevel;
+    public int energyLevel  = 100 ;
+    // since we have default value we don't need to pass energyLevel as parameter 
+    public Mammal(){
+    
     }
 
     // this method should show the animal's energy level as well as return it 
@@ -15,14 +16,15 @@ public class Mammal {
         return  this.energyLevel ;
 
     }
-    
-
+    // getter
     public int  getEnergyLevel(){
        return this.energyLevel ;
     }
+    // setter
     public void  setEnergyLevel( int energyLevel){
          this.energyLevel= energyLevel;
     }
+    
     public void decrementEnergy(int values ){
         this.energyLevel -= values;
 

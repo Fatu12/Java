@@ -2,8 +2,8 @@
 
 public class MammalTest {
     public static void main(String[] args){
-        Mammal mm = new Mammal(100);
-        Gorilla gg = new Gorilla(120);
+        Mammal mm = new Mammal();
+        Gorilla gg = new Gorilla();
         System.out.printf(" ++++========= %s",gg.energyLevel);
 
         gg.throwSomething();

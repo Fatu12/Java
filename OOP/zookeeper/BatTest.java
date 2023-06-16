@@ -2,7 +2,7 @@
 public class BatTest {
     public static void main(String[]args){
         // instantiate Bat class
-        Bat bat = new Bat(300);
+        Bat bat = new Bat();
         //   test Bat attack
         bat.attackTown();
         bat.attackTown();

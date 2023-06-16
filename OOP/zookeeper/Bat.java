@@ -1,8 +1,10 @@
 
-
+// this class Encapsulation
 public class Bat extends Mammal{
-    public Bat(int energyLevel){
-        super(energyLevel);
+    public Bat(){
+        // Inheritance is the idea that we pass along attributes and methods from 
+        //one class into a "sub-class" or child class thought out super key
+        super();
         energyLevel = 300;
     }
     public void fly(){
