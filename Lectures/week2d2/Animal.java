@@ -1,5 +1,4 @@
-
-public class Animal {
+public abstract class Animal {
     // member variable
     private String name;
     private double height;
@@ -7,9 +6,8 @@ public class Animal {
     protected int energy =20;
     private boolean isLiving = true;
     public static int animalCount;
-
     public Animal(){
-        this.name = "defualt123";
+        this.name = "default123";
         this.height = 0.0;
         this.weight = 0;
 
@@ -21,7 +19,6 @@ public class Animal {
         this.height = 0;
         this.weight = 0;
         animalCount ++;
-    
     }
     public Animal(String name, double height, int weight){
         this.name = name;
@@ -51,6 +48,9 @@ public class Animal {
     public void decrementEnergy(int values){
         this.energy -= values;
     }
+    // we don't need body of abstract here, so we just create the method
+    // that has abstract keyword
+    public abstract void  move();
 
     // we need getter and setter to access to member variable since they are private
     // ! getter and setter

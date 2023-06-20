@@ -9,12 +9,13 @@ public class Frog extends Animal {
         this.energy = 10;
         frogCount ++;
     }
+
     public void display(){
         System.out.println("Frog Class");
         super.display();
         System.out.printf("All Frogs: %s \n", frogCount);
     }
-    public void jump(){
+    public void move(){
         // if(this.energy <= 0){
             if(this.isLivingCheck()){
             super.decrementEnergy(15);

@@ -14,7 +14,7 @@ public class Deer extends Animal {
         super.display();
         System.out.printf("All Deer: %s \n", deerCount);
     }
-    public void run(){
+    public void move(){
         if(this.isLivingCheck()){
             super.decrementEnergy(15);
             //  this.energy -= 15;
@@ -24,9 +24,9 @@ public class Deer extends Animal {
         }
         else{
             System.out.printf("\n  Your dead, you can't jump");
+        }}
+            
         }
-        
-        
-    }
     
-}
+    
+

@@ -7,7 +7,7 @@ public class Gorilla extends Mammal {
     }
     // methods
     public void throwSomething(){
-        super.decrementEnergy(5);
+        this.decrementEnergy(5);
         System.out.printf("\n Gorilla throw something %s",this.energyLevel);
     }
     

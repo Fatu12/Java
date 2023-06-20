@@ -1,7 +1,7 @@
 
 
 public class Mammal {
-    // member variable 
+    // Member variables - object attributes or fields that belong to a data type or class.
     public int energyLevel  = 100 ;
     // since we have default value we don't need to pass energyLevel as parameter 
     public Mammal(){
