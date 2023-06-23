@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+*{
+	margin: Opx;
+	padding: Opx;
+}
+#wrapper{
+	width:100%;
+	height:1000px;
+	margin: Opx uoto;
+	padding: 2%;
+}
+
+.body {
+	color: blue;
+	text-align: center;
+	
+}
+.div{
+	flex: 1;
+font-size: large;
+}
