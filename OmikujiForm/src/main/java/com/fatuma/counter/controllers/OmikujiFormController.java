@@ -19,6 +19,8 @@ public class OmikujiFormController {
 		return "index.jsp";
 	}
 	
+//	know we  can access since that session  have already saved our data , session save data while user are logged in 
+	
 	@GetMapping("/show")
 	public String HOME(HttpSession session ) {
 		session.getAttribute("pickNumber");
@@ -28,6 +30,10 @@ public class OmikujiFormController {
 	
 //	since this is post we must specify in our show.jsp that method="POST"
 	// as well as the key must match with key in our show.jsp file value="pickNumber" 
+	
+	
+	// we can add MODEL to our method to access the same way we accessed using  session.setAttribute("pickNumber", pickNumber)
+	// instead we can do model.setAttribute("pickNumber", pickNumber)
 	@PostMapping("/display")
 	public String createInf(HttpSession session ,
 			@RequestParam(value="pickNumber") Integer pickNumber,
