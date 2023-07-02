@@ -18,7 +18,7 @@ public class VeiwController {
 //	Model we passing an object to the fronted through that 
 	@RequestMapping("/view")
 	public String index(Model viewModel) {
-		ArrayList<String > pizzaMenu = new ArrayList<String >();
+		ArrayList<String> pizzaMenu = new ArrayList<String >();
 		pizzaMenu.add("papperoni");
 		pizzaMenu.add("Goat cheeese");
 		pizzaMenu.add("sausage");
@@ -32,6 +32,7 @@ public class VeiwController {
 		viewModel.addAttribute("dfpizza", "Goat cheeese");
 		viewModel.addAttribute("allPizzas", pizzaMenu);
 		return "index.jsp";
+		
 	}
 	 
 
