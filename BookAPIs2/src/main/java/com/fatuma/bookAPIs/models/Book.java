@@ -47,7 +47,6 @@ public class Book {
 		
 	}
 	 @NotBlank(message="title Required")
-	 @Size(min =2 , max=255, message="title must be over 2 chareacters")
 	 private String bookTittle;
 	 
 	 @NotBlank(message="description  Required")

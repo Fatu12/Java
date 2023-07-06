@@ -1,23 +1,19 @@
 package com.fatuma.bookAPIs.repositories;
 
 import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.fatuma.bookAPIs.models.Book;
-//A Repository represents all objects of a certain type as a conceptual set. It acts like a collection, except with
-//more elaborate querying capability. CrudRepository building method 
+
 @Repository
-public interface BookRepo extends CrudRepository<Book,Long> {
-	List<Book> findAll();
+
+public interface BookRepo  extends CrudRepository<Book , Long>{
 	
-	// this method finds books with descriptions containing the search string
-    List<Book> findByBookDescriptionContaining(String search);
-    
-    
-    
-    
-    
+	  // this method retrieves all the books from the database
+    List<Book > findAll();
+
+
+
 
 }

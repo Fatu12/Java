@@ -14,9 +14,10 @@ import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
+ 
 @Entity
 @Table(name="twitters")
 
@@ -51,10 +52,10 @@ public class Tweet {
 	    @NotBlank(message="content Required")
 	    @Size(min=2,max=255, message="content must be over 2 chareacters")
 //	     the message don't nedd comma, just the attributes
-	   
 	    private String tweetContent;
+	    
 	    @NotNull(message="imaginaryIntAtt Required")
-	    @Min(value=10,message="imgainaryIntAtt must be over")
+	    @Min(value=10,message="imgainaryIntAtt must be over 10")
 	    private int imginaryIntAtt;
 	    
 	    
@@ -102,18 +103,7 @@ public class Tweet {
 		}
 		public void setImginaryIntAtt(int imginaryIntAtt) {
 			this.imginaryIntAtt = imginaryIntAtt;
-		}
-		
-		
-		
-		
-		 
- 
-		
-	    
-	  
-	   
-	    
+		}    
 	    
 	    
 	}

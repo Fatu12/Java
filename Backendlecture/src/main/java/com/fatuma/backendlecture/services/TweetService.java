@@ -20,24 +20,33 @@ public class TweetService {
 @Autowired
 private TweetRepo tRepo;
 
-// create
+// =================== create ====================
 public Tweet create(Tweet newTweet) {
 	return tRepo.save(newTweet);
 	
 }
 
-// read
+// ================== read ====================
 
 public List<Tweet> getAll() {
     return tRepo.findAll();
 }
-
-
-// update
-// Delete
-// update
-
-
-
+// =============== find one =================
+public Tweet getById(Long idUpdate ) {
+	return tRepo.findById(idUpdate).orElse(null);
+	
+}
+// =============== delete===============
+ public void delete(Long id) {
+	 this.tRepo.deleteById(id);
+ }
+ public Tweet tweetUpdate(Tweet newTweet) {
+		return tRepo.save(newTweet);
+ }
+// ====================== update =====================	
+	public void tweetDelete(Long id) {
+	 this.tRepo.deleteById(id);
+		
+	}
 }
 

@@ -28,6 +28,28 @@ public class BookController {
 	@Autowired
 	private  BookService bookService;
 	
+	@RequestMapping("/books")
+	
+	public String home(Model model) {
+		List<Book> books = bookService.allBooks();
+		model.addAttribute("book", books);
+		return "displayAll.jsp";
+				
+	}
+//	
+//	public String (Model model) {
+//        List<Book> books = bookService.allBooks();
+//        model.addAttribute("books", books);
+//        return "/books/index.jsp"
+//	
+	
+	
+//	public String index(Model model) {
+//        List<Book> books = bookService.allBooks();
+//        model.addAttribute("books", books);
+//        return "/books/index.jsp"
+//	
+//	
 	// know we want to get book out of the data base
 	// Inseade of making a variable and putting into consturtor we can say{@Autowired} 
 	
@@ -44,7 +66,11 @@ public class BookController {
     	model.addAttribute("book" ,book );
     	
     	return "/show.jsp";
-    }}
+    }
+
+    
+    
+}
 
 		
 
