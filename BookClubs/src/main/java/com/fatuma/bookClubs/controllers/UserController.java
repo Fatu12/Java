@@ -1,5 +1,3 @@
-package com.fatuma.dojoandNinjasAssignment.controllers;
-
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.fatuma.dojoandNinjasAssignment.model.UserModel;
-import com.fatuma.dojoandNinjasAssignment.services.UserService;
-import com.fatuma.dojoandNinjasAssignment.validators.LoginValidator;
+import com.fatuma.bookClubs.model.UserModel;
+import com.fatuma.bookClubs.services.UserService;
+import com.fatuma.bookClubs.validators.LoginValidator;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;

@@ -24,7 +24,7 @@
 <div>
 <h1 class="offset-4 mt-4"> Register </h1>
 
-<form:form action="/users/register" method ="POST" modelAttribute="newUser" class = "offset border offset-3 bg-info-subtle">
+<form:form action="/users/register" method ="POST"  modelAttribute="newUser" class = "offset border offset-3 bg-info-subtle">
   
 <div  class="offset-2">
  <p class = "offset-5 text-danger"><form:errors path="firstName"></form:errors></p>

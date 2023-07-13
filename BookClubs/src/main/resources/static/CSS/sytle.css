@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+*{
+	margin: Opx;
+	padding: Opx;
+}
+#wrapper{
+	width:100%;
+	height:1000px;
+	margin: Opx uoto;
+	padding: 2%;
+}
+
+.form{
+	hight:100px;
+	width:300px
+}
+.border{
+	border-style: solid;
+	hight:100px;
+	width:500px
+	
+}
+
+.tables {
+		border-style: solid;
+		
+	hight:100px;
+	width: 200px
+	
+}
