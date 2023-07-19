@@ -1,0 +1,115 @@
+package com.fatuma.BookBroker.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.fatuma.BookBroker.models.UserModel;
+import com.fatuma.BookBroker.services.ProjectService;
+import com.fatuma.BookBroker.services.UserService;
+import com.fatuma.BookBroker.validators.LoginValidator;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+
+@Controller
+@RequestMapping("/users")
+
+public class UserController {
+	@Autowired
+	private UserService uService; 
+	
+	@Autowired
+	private ProjectService pService;
+
+	//============================= GET ALL ================================
+	// bind empty bean to reg/login form
+	@GetMapping("")
+	public String index(@ModelAttribute("newUser")UserModel newUser, Model viewModel) {
+//		viewModel.addAttribute("newUser", new UserModel());
+		viewModel.addAttribute("loginUser", new LoginValidator());
+
+		return "index.jsp";
+				
+	}
+	//BindingResult like session, that going to hold infromation from service to our controller where we doing 
+	//another check with a re-render
+	
+	// ================================= REGISTAR ======================================
+	// BindingResult that allows for automatically writing the form data into a new object that we bind to the JSP page using the view model, that is, the Model model that you're accustomed to using.
+
+	 @PostMapping("/register")
+	    public String register(@Valid @ModelAttribute("newUser") UserModel user, 
+	            BindingResult result, Model model, HttpSession session) {
+	        
+		 // user is carries the value coming from the form 
+		 // since we adding values , we have to call register
+		 
+		 // why do we need to inst again 
+		 
+		 // adding data to database
+		 UserModel newestUser = this.uService.register(user, result);
+	        
+	        if(result.hasErrors()) {
+	            // Be sure to send in the empty LoginUser before 
+	            // re-rendering the page.
+	        	// we need to save otherwise doesn't work 
+	 	       model.addAttribute("loginUser", new LoginValidator());
+	            return "index.jsp";
+	        }
+	        // saving 
+	        session.setAttribute("userID", newestUser.getId());
+	     
+	    
+	        return "redirect:/users/home";
+	    }
+	   //=================================== LOGIN  ===================================
+	 //that allows for automatically writing the form data into a new object that we bind to the JSP page using the view model, that is,
+	 //the Model model that you're accustomed to using.
+	 @PostMapping("/login")
+	    public String login(@Valid @ModelAttribute("loginUser") LoginValidator newLogin, 
+	            BindingResult result, Model model, HttpSession session) {
+	        
+	        // Add once service is implemented:
+	         UserModel user = uService.login(newLogin, result);
+	    
+	        if(result.hasErrors()) {
+	        	// we need ti save otherwise it deoesn't work 
+	            model.addAttribute("newUser", new UserModel());
+	            return "index.jsp";
+	        }
+	        session.setAttribute("userID", user.getId());
+
+	        return "redirect:/users/home";
+	    }
+	    
+	 @GetMapping("/home")
+	 public String homeRoute(Model viewModel,HttpSession session ) {
+		 if(session.getAttribute("userID")== null) {
+			 return "redirect:/users"; 
+		 }
+		 Long userId =(long) session.getAttribute("userID");
+		 // when you make new varable make check the data type
+		 UserModel currentUser = this.uService.findById(userId);
+		 viewModel.addAttribute("currentUser", currentUser);
+//		 viewModel.addAttribute("allProjects", this.pService.getAll());
+		 viewModel.addAttribute("notMyProject", this.pService.getProjectWithoutMember(currentUser));
+		 
+		 return "dashboard.jsp";
+	 }
+	 // ===========================THIS IS GOING TO CLEAR THE SESSION AND LOGOUT ============================
+	 // invalidate is same as clear
+	 @GetMapping("/logout")
+	 public String logout(HttpSession session) {
+		 session.invalidate();
+		 return "redirect:/users";
+		 
+		 
+	 }
+
+}

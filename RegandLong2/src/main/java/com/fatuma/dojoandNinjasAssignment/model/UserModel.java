@@ -5,12 +5,17 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fatuma.BookBroker.models.UserModel;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -24,8 +29,10 @@ import jakarta.validation.constraints.Size;
 @Table(name="user")
 
 public class UserModel {
-
-	//=========basic class object Attratutes========
+	
+	
+	
+	// ============== basic class object Attratutes  =============
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
@@ -91,9 +98,10 @@ public class UserModel {
 			    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 			    // this attributes is the object type  of our  other table
 			    private List<BookModel> books;
-	    
+			    
+			  
+			    
 		//================== GETTER AND SETTER ================
-
 		public Long getId() {
 			return id;
 		}
@@ -153,11 +161,9 @@ public class UserModel {
 		public String getConfirm() {
 			return confirm;
 		}
-
 		public void setConfirm(String confirm) {
 			this.confirm = confirm;
 		}
-
 		public List<BookModel> getBooks() {
 			return books;
 		}

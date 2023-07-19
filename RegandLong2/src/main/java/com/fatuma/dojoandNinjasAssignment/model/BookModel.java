@@ -11,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -23,7 +25,7 @@ import jakarta.validation.constraints.Size;
 
 public class BookModel {
 	
-	//=========basic class object Attratutes========
+	//=========basic class object ATTRIBUTE========
 	 	@Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
@@ -70,7 +72,15 @@ public class BookModel {
     @ManyToOne(fetch=FetchType.LAZY)
     // this hold the Fk in this table Fk is must be unique, this is going to be the one carries the value in  the
     // databse is going to be this 
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="creator_id")
+    
+    
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "categories_products", 
+        joinColumns = @JoinColumn(name = "product_id"), 
+        inverseJoinColumns = @JoinColumn(name = "user_id"))
     
     private UserModel user;
 

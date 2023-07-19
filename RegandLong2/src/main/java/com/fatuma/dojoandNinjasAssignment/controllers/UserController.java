@@ -1,13 +1,9 @@
 package com.fatuma.dojoandNinjasAssignment.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -91,12 +87,7 @@ public class UserController {
 	        return "redirect:/users/home";
 	    }
 	    
-//	 @GetMapping("/home")
-//		 public String homeRoute(Model viewModel,HttpSession session ) {
-//			 Long userId =(long) session.getAttribute("userID");
-//		 viewModel.addAttribute("currentUser", this.uService.findById(userId));
-//			 return "dashboard.jsp";
-//		 }
+
 		 // THIS IS GOING TO CLEAR THE SESSION AND LOGOUT 
 	 @GetMapping("/logout")
 		 public String logout(HttpSession session,Model viewModel) {
@@ -122,21 +113,8 @@ public class UserController {
 	 
 		 
 	 
-	 //============================= GET ALL ==========================
-//	 
-//	 @GetMapping("/home")	
-//		public String index(Model viewModel,HttpSession session) {
-//		 
-//		
-//		 if(!(session.getAttribute("user_id") == null)) {
-//			 viewModel.addAttribute("books", this.bService.getAll());
-//		   viewModel.addAttribute("newUser", this.uService.findById((Long)session.getAttribute("userId")));
-//				    	return "dashboard.jsp";
-//			   }
-//	    	
-//		 	return "redirect:/users";
-//	 }
-	 
+	 //============================= GET ALL ==========================	 
+
 	 @RequestMapping("/book/new")
 		 public  String renderBook(Model viewModel, HttpSession session) {
 		 if((Long)session.getAttribute("userID")== null) {
@@ -149,21 +127,6 @@ public class UserController {
 	    	viewModel.addAttribute("books", this.bService.getAll());
 	    	return "CreateBook.jsp";
 	    }
-	 
-//		 if(this.uService.findById((long) session.getAttribute("userID"))== null) {
-//			 System.out.println("==========================");
-//				return "redirect:/users";
-//		 }
-//			 viewModel.addAttribute("newBook", new BookModel());
-//			 viewModel.addAttribute("books", this.bService.getAll());
-//			 Long userId =(long) session.getAttribute("userID");
-//			 System.out.println(userId);
-//			 viewModel.addAttribute("currentUser", this.uService.findById(userId));
-//		
-//			 
-//			 return "CreateBook.jsp";
-//			 
-//		 }
 	 
 	//=============================== CREATE===============================
 	 
@@ -184,14 +147,11 @@ public class UserController {
 	@GetMapping("/{oneID}")
 	public String show(@PathVariable("oneID")Long oneID, Model viewModel, HttpSession session) {
 		// datialDojos is how to pass to jsp file  to display the info in the
-
-
 		viewModel.addAttribute("showBook",this.bService.getByID(oneID));
 		UserModel user = this.uService.findById((Long)session.getAttribute("userID"));
     	viewModel.addAttribute("user", user);
 
 		return "bookId.jsp";
-	
 		 
 	}
 	

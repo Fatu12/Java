@@ -25,8 +25,8 @@
 <body>
 
 
-	<h1 class="offset-2 mt-5 text-warning-emphasis "> Welecome $ {userID.firstName} </h1>
-		<h5 class="offset-1 mt-5 text-warning-emphasis "> Books from everyine's shelves </h5>
+<h1 class="offset-2 mt-5 text-warning-emphasis "> Welecome ${userID.firstName} </h1>
+ 	<h5 class="offset-1 mt-5 text-warning-emphasis "> Books from everyine's shelves </h5>
 
 <table class="tables offset-4">
   <thead>
@@ -44,8 +44,8 @@
       		<td class="table-primary border-3  text-danger "><c:out value="${book.id}"/></td>
       		<td class="table-secondary border-3 text-success  "> <a href="/users/${book.id}"><c:out value="${ book.title}"/></a>
       		 </td>
-      		<td class="table-primary border-3 text-danger "><c:out value="${book.user.firstName}"/></td>
-      </c:forEach>
+<%--       		<td class="table-primary border-3 text-danger "><c:out value="${book.user.firstName}"/></td>
+ --%>      </c:forEach>
      
     </tr>
     
