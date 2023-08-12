@@ -4,11 +4,7 @@ package com.fatuma.BookBroker.models;
 import java.util.Date;
 import java.util.List;
 
-import org.aspectj.apache.bcel.ExceptionConstants;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -19,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -89,9 +86,20 @@ public class ProjectModel {
     )
     private List<UserModel>teamMembers;
     
-    
+    @OneToMany(mappedBy="projectTask", fetch=FetchType.LAZY)
+    private List<TaskModel> products;
+   
 	public List<UserModel> getTeamMembers() {
 		return teamMembers;
+	}
+	
+
+	public List<TaskModel> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<TaskModel> products) {
+		this.products = products;
 	}
 
 	public void setTeamMembers(List<UserModel> teamMembers) {
@@ -157,16 +165,6 @@ public class ProjectModel {
 	public void setCreator(UserModel creator) {
 		this.creator = creator;
 	}
-    
-    
-
-	
-	
-    
-
-	
-	
-	
-	
+    	
 
 }

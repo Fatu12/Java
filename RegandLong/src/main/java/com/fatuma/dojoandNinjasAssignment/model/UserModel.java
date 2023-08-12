@@ -47,12 +47,12 @@ public class UserModel {
 	    }
 	    
 	    @NotBlank(message="Last Name  is required!")
-	    @Size(min=3, max=30, message="First Name must be between 3 and 30 characters")
+	    @Size(min=3, max=255, message="First Name must be between 3  characters")
 	    private String lastName;
 	    
 	    
 	    @NotBlank(message="last name is required!")
-	    @Size(min=3, max=30, message="Last Name must be between 3 and 30 characters")
+	    @Size(min=3, max=255, message="Last Name must be  3  characters")
 	    private String firstName;
 	    
 	    // EMAIL IS UNIQUE 
@@ -62,12 +62,12 @@ public class UserModel {
 	    private String email;
 	    
 	    @NotBlank(message="Password is required!")
-	    @Size(min=8, max=20000, message="Password must be between 8 and 128 characters")
+	    @Size(min=8, max=20000, message="Password must be  8 characters")
 	    private String password;
 	    //This will allow us to use confirm on an instance of User temporarily, without ever saving it to the database. 
 	    @Transient
 	    @NotBlank(message="Confirm Password is required!")
-	    @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
+	    @Size(min=8, max=255, message="Confirm Password mutch  ")
 	    private String confirm;
 	    
 	    // ===================CONSTURCTURE===================== 

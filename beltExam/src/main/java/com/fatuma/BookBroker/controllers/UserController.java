@@ -95,7 +95,11 @@ import jakarta.validation.Valid;
 			 Long userId =(long) session.getAttribute("userID");
 			 UserModel currentUser = this.uService.findById(userId);
 			 viewModel.addAttribute("currentUser", this.uService.findById(userId));
-			 viewModel.addAttribute("notMyProject", this.pService.getAllWithoutMember(currentUser));
+			 viewModel.addAttribute("notMyProject", this.pService.withOutTeam(currentUser));
+//	       viewModel.addAttribute("allProject", this.pService.getAll());
+
+			 
+//			 viewModel.addAttribute("notMyProject", this.pService.getAllWithoutMember(currentUser));
 			 return "dashboard.jsp";
 		 }
 		 // THIS IS GOING TO CLEAR THE SESSION AND LOGOUT 

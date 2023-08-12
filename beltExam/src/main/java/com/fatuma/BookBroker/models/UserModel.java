@@ -90,10 +90,18 @@ import jakarta.validation.constraints.Size;
 		    )
 		    private List<ProjectModel> millonDollerIdea;
 		    
-		    
-		    
-		    
-		    public List<ProjectModel> getMillonDollerIdea() {
+		    @OneToMany(mappedBy="userTask", fetch=FetchType.LAZY)
+		    private List<TaskModel> createdTask;
+		   
+		    public List<TaskModel> getCreatedTask() {
+				return createdTask;
+			}
+
+			public void setCreatedTask(List<TaskModel> createdTask) {
+				this.createdTask = createdTask;
+			}
+
+			public List<ProjectModel> getMillonDollerIdea() {
 				return millonDollerIdea;
 			}
 
@@ -185,6 +193,8 @@ import jakarta.validation.constraints.Size;
 			public void setMyProjects(List<ProjectModel> myProjects) {
 				this.myProjects = myProjects;
 			}
+
+			
 			
 			
 		    

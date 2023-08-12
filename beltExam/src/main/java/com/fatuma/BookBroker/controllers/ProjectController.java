@@ -36,7 +36,8 @@ public class ProjectController {
 	//================================= CREATE THIS PROJECT ==============================
 	@PostMapping("/create")
 	public  String createProject(@Valid @ModelAttribute("newProject")ProjectModel newProject, BindingResult result ,HttpSession session) {
-		
+
+			
 		
 		if(result.hasErrors()) {
 			return "createProject.jsp";
@@ -48,6 +49,7 @@ public class ProjectController {
 			
 			// tie user upand ont the project creater , we now the user is in the session.
 //			newProject.setCreator(this.uService.findById((long)session.getAttribute("userID")));
+
 			System.out.println(newProject.getCreator());
 			 UserModel currentUser = this.uService.findById((long)session.getAttribute("userID"));
 			this.pService.createProjocts(newProject, currentUser);
@@ -68,6 +70,8 @@ public class ProjectController {
 			HttpSession session) {
 			
 			if(result.hasErrors()) {
+	
+				
 				return "edit.jsp";
 			}
 			
@@ -93,7 +97,7 @@ public class ProjectController {
 		// since the user who logged in is the one who is goig to login we don't need to pass that that our method, 
 		// we can get it from the session.
 		@GetMapping("/join/{joinId}")
-	public String  joinTeam(@PathVariable("joinId") Long projectID,HttpSession session) {
+	    public String  joinTeam(@PathVariable("joinId") Long projectID,HttpSession session) {
 			Long currrentUserID = (Long)session.getAttribute("userID");
 			if(currrentUserID == null) {
 				return "redirect:/";

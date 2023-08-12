@@ -30,7 +30,9 @@ public class ProjectService {
 	
 	public ProjectModel createProjocts(ProjectModel newProj, UserModel user) {
 		newProj.setCreator(user);
+
 		return this.pRespo.save(newProj);
+
 		
 	}
 	
@@ -57,6 +59,10 @@ public class ProjectService {
 	public void deleteProject(Long deleteID) {
 	 this.pRespo.deleteById(deleteID);
 	}
+	
+	
+		
+		
 	public ProjectModel joinTeam(ProjectModel proj, UserModel users) {
 		//we can pass the id to join as well as objects 
 		proj.getTeamMembers().add(users);
@@ -69,17 +75,17 @@ public class ProjectService {
 	
 		//we can pass the id to join as well as objects 
 		proj.getTeamMembers().remove(users);
-		// save the thing  that pass to it
-		return this.pRespo.save(proj);
-	
+			//save the thing  that pass to it
+			return this.pRespo.save(proj);
+
+		
+	}
+	public List<ProjectModel> withOutTeam(UserModel user) {
+		 return this.pRespo.findAllByTeamMembersNotContains(user);
+		
 		
 	}
 	
-	public List<ProjectModel> getAllWithoutMember( UserModel user){
-		return this.pRespo.findAllByTeamMembersNotContains(user);
-		
-		
-	}
-	
+
 
 }

@@ -38,7 +38,7 @@ public class ProjectController {
 	}
 	
 	@PostMapping("/create")
-	private String addProject(@Valid @ModelAttribute("newProject")ProjectModel newProject, BindingResult result, HttpSession session) {
+	public String addProject(@Valid @ModelAttribute("newProject")ProjectModel newProject, BindingResult result, HttpSession session) {
 		
 		
 		
@@ -82,10 +82,11 @@ public class ProjectController {
 			HttpSession session ) {
 	
 		if(result.hasErrors()) {
+			
 			return "edit.jsp";
 		}
 		// inseade of doing here we have done the same contoller in our service
-	editPorject.setCreatore(this.uService.findById((long)session.getAttribute("userID")));
+	    editPorject.setCreatore(this.uService.findById((long)session.getAttribute("userID")));
 
 		this.pService.updateProject(editPorject);
 		return "redirect:/users/home";

@@ -26,7 +26,7 @@
 	<h1 class="text-center text-primary-emphasis "> Add a Book to Your Shelf! </h1>
 
 
-<form:form action="/projects/update/${projectToEdit.id}" method="put" modelAttribute="projectToEdit">
+<form:form action="/projects/update/${projectToEdit.id}" method="PUT" modelAttribute="projectToEdit">
 <input type="hidden" name="user" value="${user.id}" />
  <div class= "offset-1 ps-5">
   <div class="form-group ">

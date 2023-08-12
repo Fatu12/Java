@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 	  <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+	  
 <%@ page isErrorPage="true" %> 
 	    
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 <!-- For any Bootstrap that uses JS -->
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 </head>
 <body>
 
@@ -51,9 +52,9 @@
 
   
  <!--  this is all the project that your not part of it , so just it going to display only join part  -->
-      <c:forEach  var ="project" items="${NotMyProject}" >
+      <c:forEach  var ="dorm" items="${allDorms}" >
       		<tr>
-      		<td class="table-primary border-3  text-danger"> <a href="/projects/${project.id}"> <c:out value="${project.title}"/></a></td>
+      		<td class="table-primary border-3  text-danger"> <a href="/dorms/${dorm.id}"> <c:out value="${dorm.firstName}"/></a></td>
      		<td class="table-secondary border-3 text-success "><c:out value="${project.creatore.firstName}"/>
     		 <td class="table-secondary border-3 text-success"> <c:out value="${project.duaDate}"/></td>
     		   <th> <a href="/projects/join/${project.id}"> Join Team</a>
@@ -80,8 +81,8 @@
  <!--  this is all the project that your not part of it , so just it going to display only join part  -->
       <c:forEach  var ="project" items="${currentUser.millionDollarIdeas}" >
       		<tr>
-      		<td class="table-primary border-3  text-danger"> <a href="/projects/${project.id}"> <c:out value="${project.title}"/></a></td>
      		<td class="table-secondary border-3 text-success "><c:out value="${project.creatore.firstName}"/>
+      		<td class="table-primary border-3  text-danger"> <a href="/projects/${project.id}"> <c:out value="${project.creatore.title}"/></a></td>
     		 <td class="table-secondary border-3 text-success"> <c:out value="${project.duaDate}"/></td>	
     		
       		  <c:choose>
@@ -101,13 +102,7 @@
 
      </tbody>
      </table>
-     
-     
-   
-
-     
-     
-
+    
 </body>
 
-</html>
+</h

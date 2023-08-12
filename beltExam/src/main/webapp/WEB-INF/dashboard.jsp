@@ -30,14 +30,10 @@
 <a href="/project/new">+ new project</a>
 <a href="/users/logout">Log out</a>
 </div>
-
-
-
 <h3 class="text-center">All Projects </h3>
 
 <table class="offset-4">
   <thead>
-  
     <tr class="bg-warning border-2 ">
       <th scope="col">Project</th>
       <th scope="col"> Team Lead</th>
@@ -45,54 +41,14 @@
        <th scope="col">Actions</th> 
     </tr>
   </thead>
-  
-
+ 
   <c:forEach var ="project" items="${notMyProject}">
   		<tr>
   		<td> <c:out value="${project.title}"></c:out> </td>
   		<td> <c:out value="${project.creator.firstName}"></c:out> </td>
   		<td> <c:out value="${project.duaDate}"></c:out> </td>
-  		<td> <a href="/project/${project.id}">Join Team</a> </td>
-  		
-  		<%--   <c:if test="${project.creator.id eq userID}">
-  		 <a href="/project/edit/${project.id}">edit</a>| <a href="/project/delete/${project.id}">delete</a>
-  		 
-  		 </c:if>
-  		<c:choose>
-  			<c:when test="${project.teamMembers.contains(currentUser)}">
-  				 <a href="/project/unjoin/${project.id}">Leave Team</a>
-  			
-  			</c:when>
-  			<c:otherwise>
-  					
-  				 <a href="/project/join/${project.id}">Join Team</a>
-  			</c:otherwise>
-  		
-  		</c:choose> 
-  		 
-  		</td> --%>
-  		
-  		
-  		</tr>
-  </c:forEach>
-  
-  </tbody>
-  </table>
-  
-  
-  <div class="text-center">
-
-<h1 class=" mt-4"> WEL COME ${currentUser.firstName} </h1>
-<c:out value=""></c:out>
-<h3> First Name : ${currentUser.firstName}</h3>
-<h3>Last Name: ${currentUser.lastName}</h3>
-<h3>Email: ${currentUser.email}</h3>
-<a href="/project/new">+ new project</a>
-<a href="/users/logout">Log out</a>
-</div>
-
-
-
+		<td> <a href="/project/join/${project.id}">Join Team</a> </td>
+   </c:forEach>
 <h3 class="text-center">My Project </h3>
 
 <table class="offset-4">
@@ -105,8 +61,7 @@
        <th scope="col">Actions</th> 
     </tr>
   </thead>
-  
-
+ 
   <c:forEach var ="project" items="${currentUser.millonDollerIdea}">
   		<tr>
   		<td> <c:out value="${project.title}"></c:out> </td>
@@ -116,7 +71,8 @@
   		
   			<c:when test="${project.creator.id eq userID}">
   				<td>
- 				<a href="/project/edit/${project.id}">edit</a>| <a href="/project/delete/${project.id}">delete</a>	
+ 				<a href="/project/edit/${project.id}">edit</a>| <a href="/project/delete/${project.id}">delete</a>	|
+ 				<a href="/tasks/${project.id}">Task</a>
  				</td>	
   			</c:when>
   			<c:otherwise>
@@ -126,8 +82,6 @@
   			</c:otherwise>
   		
   		</c:choose> 
-  		 
-  
   		
   		</tr>
   </c:forEach>
