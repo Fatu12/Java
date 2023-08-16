@@ -49,7 +49,7 @@
   </thead>
   <tbody>
  <!--  this is all the project that your not part of it , so just it going to display only join part  -->
-      <c:forEach  var ="team" items="${allTeams}" >
+      <c:forEach  var ="team" items="${allTeams}">
       		<tr>
       		
       		<td class="table-primary border-3  text-danger"> <a href="/players/${team.id}"> <c:out value="${team.name}"/></a></td>
